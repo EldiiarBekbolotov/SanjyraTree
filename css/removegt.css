@@ -1,0 +1,86 @@
+/* more options = better */
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+iframe.goog-te-banner-frame {
+    display: none !important;
+}
+
+.skiptranslate>iframe {
+    height: 0 !important;
+    border-style: none;
+    box-shadow: none;
+    visibility: hidden !important;
+}
+
+iframe.skiptranslate {
+    visibility: hidden !important;
+}
+
+.goog-logo-link {
+    display: none !important;
+    visibility: hidden !important;
+
+    font-size: 0px !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0px !important;
+}
+
+select.google_translate_element {
+    color: black;
+}
+
+.goog-te-gadget .goog-te-combo {
+    color: black !important;
+    padding: 0 16px;
+    height: 36px;
+}
+
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+    display: none;
+}
+
+#google_translate_element {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+#goog-gt-tt {
+    display: none !important;
+    top: 0px !important;
+}
+
+.goog-tooltip skiptranslate {
+    display: none !important;
+    top: 0px !important;
+}
+
+.activity-root {
+    display: hide !important;
+}
+
+.status-message {
+    display: hide !important;
+}
+
+.started-activity-container {
+    display: hide !important;
+}
+
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}

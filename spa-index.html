@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!—-
+Let’s see. Making a family tree application which requires users zero coding skills and is saved through a save code is the goal.
+
+First you need the user to be able to add entities, we can do it using these ways:
+
+1. Using canvas/PJS, you just create an entity which is a rectangle and click a button to connect or drag to connect two entities and then can edit entity’s details. All data is in a central variable which gets saved through local storage and there is an option to save using save code. Savecode is encrypted using as simple as possible and there is option for raw output. You then input the code and it loads everything. Make everything draggable and responsive and drag and drop and easy to use.
+-—>
+<html data-bs-theme='auto'>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NATUWARS is an exciting 2D offline shooter game developed by LeaferStudios. Experience the thrill of action in version 0.4." />
+    <meta name="author" content="LeaferStudios" />
+    <meta name="keywords" content="NATUWARS,2D,offline,shooter,LeaferStudios,NATUWARS v0.4" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Serif:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <title>New webpage</title>
+<!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <style>
+        :root {
+            box-sizing: border-box;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root[color-mode="user"] {}
+        }
+
+        html,
+        body {
+            position: static !important;
+            top: 0px !important;
+            font-family: 'IBM Plex Sans', BlinkMacSystemFont;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-scrollbar) transparent;
+        }
+
+        *::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: gray;
+            border-radius: 10px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: calc(1.375rem + 1.5vw);
+        }
+
+        /* no select */
+        .no-select {
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* KHTML */
+            -moz-user-select: none;
+            /* Older Firefox */
+            -ms-user-select: none;
+            /* IE */
+            user-select: none;
+            /* Chrome, Edge, Opera and Firefox */
+        }
+
+        /* container */
+        .container {
+            margin: 0 auto;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        /* jumbotron */
+        .jumbotron {}
+
+        .block:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        .bg-red {
+            background: tomato;
+        }
+
+        .bg-green {
+            background: lightgreen;
+
+        }
+
+        .bg-blue {
+            background: lightblue;
+        }
+
+        .no-space {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        hr {
+            background: gainsboro;
+            height: 1px;
+            border: none;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        code {
+            font-family: 'Roboto Mono', monospace;
+            color: rgb(138, 127, 0);
+        }
+
+        a {
+            color: rgb(184, 169, 0);
+            text-decoration: none;
+            border: 1px solid transparent;
+
+        }
+
+        a:hover {
+            color: rgb(184, 169, 0);
+            text-decoration: none;
+            border-bottom: 1px solid rgb(184, 169, 0);
+        }
+
+        a:focus {
+            border: 1px solid rgb(184, 169, 0);
+        }
+    </style>
+    <style type='text/css'>
+        /* remove translate top, more options = better */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        iframe.goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .skiptranslate>iframe {
+            height: 0 !important;
+            border-style: none;
+            box-shadow: none;
+            visibility: hidden !important;
+        }
+
+        iframe.skiptranslate {
+            visibility: hidden !important;
+        }
+
+        .goog-logo-link {
+            display: none !important;
+            visibility: hidden !important;
+
+            font-size: 0px !important;
+        }
+
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0px !important;
+        }
+
+        select.google_translate_element {
+            color: black;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            color: black !important;
+            padding: 0 16px;
+            height: 36px;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+            display: none;
+        }
+
+        /*#google_translate_element { height: 26px !important; overflow: hidden !important; }*/
+    </style>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <noscript>
+        Sorry, your browser does not support JavaScript, which is needed to run this application!
+    </noscript>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+  
+        <li class="nav-item">
+          <div class="dropdown">
+        <a class="btn btn-success dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Language <i class="fa fa-arrow-down"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|ky)" data-lang="ky"><span class="fi fi-kg"></span> Kyrgyz</a></li>
+            <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|ru)" data-lang="ru"><span class="fi fi-ru"></span> Russian</a></li>
+            <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|en)" data-lang="en"><span class="fi fi-us"></span> English</a></li>
+            <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|zh-CN)" data-lang="zh-CN"><span class="fi fi-cn"></span> Chinese (simplified, PRC)</a></li>
+            <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|kk)" data-lang="kk"><span class="fi fi-kz"></span> Kazakh</a></li>
+        </ul>
+    </div>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+    <div class='scene'>
+        <h1>My Family Tree Minimum Viable Product</h1>
+        <p>by Eldiiar Bekbolotov</p>
+    </div>
+   
+   
+
+   
+    <div id="google_translate_element"></div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+            }, 'google_translate_element');
+        }
+
+        function triggerHtmlEvent(element, eventName) {
+            var event;
+            if (document.createEvent) {
+                event = document.createEvent('HTMLEvents');
+                event.initEvent(eventName, true, true);
+                element.dispatchEvent(event);
+            } else {
+                event = document.createEventObject();
+                event.eventType = eventName;
+                element.fireEvent('on' + event.eventType, event);
+            }
+        }
+
+        jQuery('.lang-select').click(function() {
+            var theLang = jQuery(this).attr('data-lang');
+            jQuery('.goog-te-combo').val(theLang);
+
+            //alert(jQuery(this).attr('href'));
+            window.location = jQuery(this).attr('href');
+            location.reload();
+
+        });
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <script type='application/javascript'>
+        function $(selector) {
+            if (selector.startsWith('#')) {
+                return document.getElementById(selector.substring(1));
+            } else {
+                return document.querySelectorAll(selector);
+            }
+        }
+
+        function scene(index) {
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+            for (var i = 0; i < $('.scene').length; i++) {
+                $('.scene')[i].style.display = 'none';
+            }
+            $('.scene')[index].style.display = 'block';
+        }
+
+        scene(0);
+    </script>
+
+    <script></script>
+</body>
+
+</html>

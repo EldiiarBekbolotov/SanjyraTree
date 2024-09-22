@@ -1,0 +1,37 @@
+html,
+body {
+    position: static !important;
+    top: 0px !important;
+    font-family: 'IBM Plex Sans', BlinkMacSystemFont;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.fi {
+    margin-right: 5px;
+}
+
+i {
+    margin-right: 5px;
+}
+
+/* no select */
+.no-select {
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* KHTML */
+    -moz-user-select: none;
+    /* Older Firefox */
+    -ms-user-select: none;
+    /* IE */
+    user-select: none;
+    /* Chrome, Edge, Opera and Firefox */
+}
