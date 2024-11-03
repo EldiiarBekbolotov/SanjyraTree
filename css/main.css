@@ -35,3 +35,29 @@ i {
     user-select: none;
     /* Chrome, Edge, Opera and Firefox */
 }
+
+.navbar-toggler {
+    border: 1px solid rgb(165, 165, 165, 0.0) !important;
+    border-radius: 0%;
+}
+.navbar-toggler:hover span {
+    color: rgb(165, 165, 165) !important;
+}
+.img-container {
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    box-shadow: inset -100000px -1000000px rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 100vw;
+    min-height: 50vh;
+    background-repeat: no-repeat;
+    padding-left: 20vw;
+    padding-right: 10vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+.img-container h1 {
+    padding-bottom: 5vh;
+    font-size: 5rem;
+}
