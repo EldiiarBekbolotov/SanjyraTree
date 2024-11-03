@@ -44,7 +44,7 @@
             overflow: auto;
         }
         .new-node-button {
-            margin: 10px;
+            margin: 0px;
         }
     </style>
 </head>
@@ -56,74 +56,17 @@
    
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#!" onclick="scene(0);"><i class="bi-person-arms-up" aria-hidden="true"></i>Family Sanjura</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(0);"><i class="bi-house-door" aria-hidden="true"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(1);"><i class="bi-info-circle" aria-hidden="true"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(2);"><i class="bi-diagram-3" aria-hidden="true"></i> Get Started</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(3);"><i class="bi-question-circle" aria-hidden="true"></i> Help</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <a class="btn btn-success dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi-translate" aria-hidden="true"></i> Language
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|ky)" data-lang="ky"><span class="fi fi-kg"></span> Kyrgyz</a></li>
-                                <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|ru)" data-lang="ru"><span class="fi fi-ru"></span> Russian</a></li>
-                                <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|en)" data-lang="en"><span class="fi fi-us"></span> English</a></li>
-                                <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|zh-CN)" data-lang="zh-CN"><span class="fi fi-cn"></span> Chinese (simplified, PRC)</a></li>
-                                <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|kk)" data-lang="kk"><span class="fi fi-kz"></span> Kazakh</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
+            <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family Sanjura</a>
+            
         </div>
     </nav>
 
-    <div class='scene'>
-        <div class='container p-5'>
-            <h1>Family Sanjura</h1>
-            <p>by Eldiiar Bekbolotov</p>
-
-            <a class="btn btn-primary" role="button" href="editor.html"><i class="bi-diagram-3" aria-hidden="true"></i> Get Started</a>
-            <!--<a class="btn btn-primary" role="button" href="#"><i class="bi-download" aria-hidden="true"></i> Import</a>-->
-        </div>
-    </div>
-
-    <div class="scene">
-        <div class="container p-5">
-            <h1>About</h1>
-        </div>
-    </div>
-
-    <div class="scene">
-        <h1>Get Started</h1>
-    </div>
-
-    <div class="scene">
-        Help
-    </div>
-
-    <div class="scene">
-        <button class="new-node-button" onclick="startNewNode()">New Node</button>
+    
+    <div>
+        <button role="button" class="new-node-button btn btn-success" onclick="startNewNode()"><i class="bi-person-add" aria-hidden="true"></i>  New Member</button>
   
-    <button onclick="saveData()">Save Data</button>
-    <button onclick="loadData()">Load Data</button>
+    <button role='button' class="btn btn-outline-secondary" onclick="saveData()"><i class="bi-save" aria-hidden="true"></i>  Save Data</button>
+    <button role='button'class="btn btn-outline-secondary" onclick="loadData()"><i class="bi-upload" aria-hidden="true"></i>  Load Data</button>
     <canvas id="familyTreeCanvas" width='600' height='600'></canvas>
 
     <div id="infoBox" class="info-box">
@@ -153,13 +96,10 @@
     <script src="js/initializegt.js"> </script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type='text/javascript' src="js/index.js"></script>
-    <!--<script type='text/javascript' src="js/sanjuratree.js">-->
+    <!--<script type='text/javascript' src="js/sanjuratree.js"></script>-->
         
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="application/javascript">
-        scene(4);
-       
-    </script><script type="text/javascript">
     const canvas = document.getElementById('familyTreeCanvas');
 const ctx = canvas.getContext('2d');
 const infoBox = document.getElementById('infoBox');
