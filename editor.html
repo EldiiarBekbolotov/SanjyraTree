@@ -9,12 +9,14 @@
     <meta name="keywords" content="SanjuraByEldiiar,FamilyTree,Application,EldiiarBekbolotov" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Serif:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Serif:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
     <title>FamilySanjura</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="font/bootstrap-icons.woff">    
+    <link rel="stylesheet" href="font/bootstrap-icons.woff">
     <link rel="stylesheet" href="font/bootstrap-icons.woff2">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/removegt.css">
@@ -22,7 +24,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="UTF-8" />
-
     <style>
         canvas {
             border: 1px solid blue;
@@ -30,6 +31,7 @@
             width: 100vw;
             height: 90vh;
         }
+
         .info-box {
             position: absolute;
             left: 0;
@@ -43,6 +45,7 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             overflow: auto;
         }
+
         .new-node-button {
             margin: 0px;
         }
@@ -53,345 +56,451 @@
     <noscript>
         Sorry, your browser does not support JavaScript, which is needed to run this application!
     </noscript>
-   
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+    <nav class="navbar navbar-expand-lg bg-dark bg-gradient navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family Sanjura</a>
-            
-        </div>
+            <a class="nav-link text-light" href="index.html"><i class="bi-arrow-left" aria-hidden="true"></i>Home Page</a>
+     <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family
+                Sanjura</a>
+                   </div>
+
+
     </nav>
 
-    
+
     <div>
-        <button role="button" class="new-node-button btn btn-success" onclick="startNewNode()"><i class="bi-person-add" aria-hidden="true"></i>  New Member</button>
-  
-    <button role='button' class="btn btn-outline-secondary" onclick="saveData()"><i class="bi-save" aria-hidden="true"></i>  Save Data</button>
-    <button role='button'class="btn btn-outline-secondary" onclick="loadData()"><i class="bi-upload" aria-hidden="true"></i>  Load Data</button>
-    <canvas id="familyTreeCanvas" width='600' height='600'></canvas>
+        <div class="d-flex align-content-end flex-wrap">
+            <button role="button" class="new-node-button btn btn-success mx-2 my-2" onclick="startNewNode()"><i
+                    class="bi-person-add" aria-hidden="true"></i> New Member</button>
+            <button type="button" class="btn btn-primary mx-2 my-2" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+            <button role='button' class="btn btn-primary text-light mx-2 my-2" onclick="saveData()"><i class="bi-save"
+                    aria-hidden="true"></i> Get Save Code</button>
 
-    <div id="infoBox" class="info-box">
-        <label>Name: <input type="text" id="nameInput"></label><br>
-        <label>Info: <textarea id="infoInput" rows="3"></textarea></label><br>
-        <label>Image URL: <input type="text" id="imageInput"></label><br>
-        <button onclick="saveNode()">Save</button>
-        <button onclick="deleteNode()">Delete Node</button>
-      <button onclick="closeInfoBox();">Close</button>
+            <button role='button' class="btn btn-outline-secondary mx-2 my-2" onclick="loadData()"><i class="bi-upload"
+                    aria-hidden="true"></i> Load With Save Code</button>
+            <button role='button' class="btn btn-danger text-light mx-2 my-2" onclick="saveLocalData()"><i
+                    class="bi-save" aria-hidden="true"></i> Local Save</button>
+
+            <button role='button' class="btn btn-outline-secondary mx-2 my-2" onclick="loadSavedData()"><i
+                    class="bi-upload" aria-hidden="true"></i> Load Local Save</button>
+        </div>
+        <canvas id="familyTreeCanvas" width='600' height='600'></canvas>
+
+        <div id="infoBox" class="info-box">
+            <label>Name: <input type="text" id="nameInput"></label><br>
+            <label>Info: <textarea id="infoInput" rows="3"></textarea></label><br>
+            <label>Image URL: <input type="text" id="imageInput"></label><br>
+            <button onclick="saveNode()">Save</button>
+            <button onclick="deleteNode()">Delete Node</button>
+            <button onclick="closeInfoBox();">Close</button>
+        </div>
+
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="closeModal();">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 px-3 my-4 border-top">
-          <div class="col-md-4 d-flex align-items-center">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 px-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
-          </div>
-      
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i class="bi bi-github"></i></a></li>
-             </ul>
-        </footer>
+        </div>
+        <button id="theme-toggle" class="btn btn-primary">Toggle Theme</button>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
+                        class="bi bi-github"></i></a></li>
+        </ul>
+    </footer>
 
     <div id="google_translate_element"></div>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
     <script src="js/initializegt.js"> </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type='text/javascript' src="js/index.js"></script>
     <!--<script type='text/javascript' src="js/sanjuratree.js"></script>-->
-        
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="application/javascript">
-    const canvas = document.getElementById('familyTreeCanvas');
-const ctx = canvas.getContext('2d');
-const infoBox = document.getElementById('infoBox');
-const nameInput = document.getElementById('nameInput');
-const infoInput = document.getElementById('infoInput');
-const imageInput = document.getElementById('imageInput');
-canvas.width = canvas.getBoundingClientRect().width * devicePixelRatio;
-canvas.height = canvas.getBoundingClientRect().height * devicePixelRatio;
-ctx.scale(devicePixelRatio, devicePixelRatio);
-
-let nodes = [];
-let connections = [];
-let selectedNode = null;
-let isDraggingNode = false;
-let isDraggingCanvas = false;
-let dragOffsetX = 0,
-    dragOffsetY = 0;
-let scale = 1;
-let offsetX = 0,
-    offsetY = 0;
-let newNodeMode = false;
-let startConnectNode = null;
-const CIRCLE_RADIUS = 15;
-
-class Node {
-    constructor(x, y, name = "Name", info = "Info", imageSrc = null) {
-        this.x = x;
-        this.y = y;
-        this.width = 120;
-        this.height = 60;
-        this.name = name;
-        this.info = info;
-        this.imageSrc = imageSrc;
-        this.image = new Image();
-        if (imageSrc) {
-            this.image.src = imageSrc;
+        function closeModal() {
+            const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            myModal.hide();
         }
-    }
+        const themeToggle = document.getElementById('theme-toggle');
 
-    draw() {
-        ctx.fillStyle = "#87CEEB";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.strokeRect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "black";
-        ctx.font = "12px Arial";
-        ctx.fillText(this.name, this.x + 10, this.y + 20);
+themeToggle.addEventListener('click', () => {
+  const htmlElement = document.documentElement;
+  const currentTheme = htmlElement.getAttribute('data-bs-theme');
 
-        if (this.image.src) {
-            this.image.onload = () => {
-                ctx.drawImage(this.image, this.x + this.width - 50, this.y + 5, 40, 40);
-            };
-        }
+  if (currentTheme === 'light') {
+    htmlElement.setAttribute('data-bs-theme', 'dark');
+  } else if (currentTheme === 'dark') {
+    htmlElement.setAttribute('data-bs-theme', 'light');
+  } else {
+    htmlElement.setAttribute('data-bs-theme', 'dark');
+  }
+});
+    </script>
+    <script type="application/javascript">
+        const canvas = document.getElementById('familyTreeCanvas');
+        const ctx = canvas.getContext('2d');
+        const infoBox = document.getElementById('infoBox');
+        const nameInput = document.getElementById('nameInput');
+        const infoInput = document.getElementById('infoInput');
+        const imageInput = document.getElementById('imageInput');
+        canvas.width = canvas.getBoundingClientRect().width * devicePixelRatio;
+        canvas.height = canvas.getBoundingClientRect().height * devicePixelRatio;
+        ctx.scale(devicePixelRatio, devicePixelRatio);
 
-        this.drawConnectionPoints();
-    }
-
-    drawConnectionPoints() {
-        const points = [{
-                x: this.x + this.width / 2,
-                y: this.y
-            }, // Top
-            {
-                x: this.x + this.width,
-                y: this.y + this.height / 2
-            }, // Right
-            {
-                x: this.x + this.width / 2,
-                y: this.y + this.height
-            }, // Bottom
-            {
-                x: this.x,
-                y: this.y + this.height / 2
-            } // Left
-        ];
-        points.forEach(point => {
-            ctx.fillStyle = 'red';
-            ctx.beginPath();
-            ctx.arc(point.x, point.y, CIRCLE_RADIUS, 0, Math.PI * 2);
-            ctx.fill();
-        });
-    }
-
-    isClicked(mouseX, mouseY) {
-        return mouseX >= this.x && mouseX <= this.x + this.width &&
-            mouseY >= this.y && mouseY <= this.y + this.height;
-    }
-
-    showInfo() {
-        infoBox.style.display = 'block';
-        nameInput.value = this.name;
-        infoInput.value = this.info;
-        imageInput.value = this.imageSrc || '';
-        selectedNode = this;
-    }
-}
-
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.save();
-    ctx.translate(offsetX, offsetY);
-    ctx.scale(scale, scale);
-
-    // Draw connections
-    for (const connection of connections) {
-        ctx.beginPath();
-        ctx.moveTo(connection.node1.x + connection.node1.width / 2, connection.node1.y + connection.node1.height / 2);
-        ctx.lineTo(connection.node2.x + connection.node2.width / 2, connection.node2.y + connection.node2.height / 2);
-        ctx.strokeStyle = 'black';
-        ctx.stroke();
-    }
-
-    // Draw nodes
-    for (const node of nodes) {
-        node.draw();
-    }
-
-    ctx.restore();
-}
-
-canvas.addEventListener('mousedown', (event) => {
-    const mouseX = (event.offsetX - offsetX) / scale;
-    const mouseY = (event.offsetY - offsetY) / scale;
-
-    if (newNodeMode) {
-        nodes.push(new Node(mouseX, mouseY));
-        draw();
-        newNodeMode = false;
-    } else {
-        selectedNode = nodes.find(node => node.isClicked(mouseX, mouseY));
-        if (selectedNode) {
-            isDraggingNode = true;
-            dragOffsetX = mouseX - selectedNode.x;
-            dragOffsetY = mouseY - selectedNode.y;
-            selectedNode.showInfo();
-        } else {
-            const pointClicked = checkConnectionPoint(mouseX, mouseY);
-            if (pointClicked) {
-                if (!startConnectNode) {
-                    startConnectNode = pointClicked.node;
-                } else {
-                    connections.push({
-                        node1: startConnectNode,
-                        node2: pointClicked.node
-                    });
-                    startConnectNode = null; // Reset for the next connection
-                }
+        /*function wrapText(text, maxWidth, maxHeight, lineHeight) {
+          const words = text.split(' ');
+          let currentLine = "";
+          let lines = [];
+        
+          for (let i = 0; i < words.length; i++) {
+            const word = words[i];
+            const testLine = currentLine + " " + word;
+            const metrics = ctx.measureText(testLine);
+            const testWidth = metrics.width;
+            const testHeight = lines.length * lineHeight;
+        
+            if (testWidth > maxWidth || testHeight > maxHeight) {
+              lines.push(currentLine);
+              currentLine = word;
             } else {
-                isDraggingCanvas = true;
+              currentLine = testLine;
+            }
+          }
+        
+          lines.push(currentLine);
+          return lines;
+        }*/
+
+        let nodes = [];
+        let connections = [];
+        let selectedNode = null;
+        let isDraggingNode = false;
+        let isDraggingCanvas = false;
+        let dragOffsetX = 0,
+            dragOffsetY = 0;
+        let scale = 1;
+        let offsetX = 0,
+            offsetY = 0;
+        let newNodeMode = false;
+        let startConnectNode = null;
+        const CIRCLE_RADIUS = 15;
+
+        class Node {
+            constructor(x, y, name = "Name", info = "Info", imageSrc = null) {
+                this.x = x;
+                this.y = y;
+                this.width = 120;
+                this.height = 120;
+                this.name = name;
+                this.info = info;
+                this.imageSrc = imageSrc;
+                this.image = new Image();
+                if (imageSrc) {
+                    this.image.src = imageSrc;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = "rgb(220, 237, 200)";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+                ctx.fillStyle = "black";
+                ctx.font = 12 + "px Arial";
+                ctx.fillText(this.name, this.x + 10, this.y + 20);
+                /*const wrappedLines = wrapText(this.name, this.width, this.height, 12);  // Adjust width, height, and line height as needed
+                
+        for (let i = 0; i < wrappedLines.length; i++) {
+          ctx.fillText(wrappedLines[i], this.x + 10, this.y + 20 + (i * 15));
+        }*/
+                if (this.image.src) {
+                    this.image.onload = () => {
+                        ctx.drawImage(this.image, this.x + this.width - 50, this.y + 5, 40, 40);
+                    };
+                }
+
+                this.drawConnectionPoints();
+            }
+
+            drawConnectionPoints() {
+                const points = [{
+                    x: this.x + this.width / 2,
+                    y: this.y
+                }, // Top
+                {
+                    x: this.x + this.width,
+                    y: this.y + this.height / 2
+                }, // Right
+                {
+                    x: this.x + this.width / 2,
+                    y: this.y + this.height
+                }, // Bottom
+                {
+                    x: this.x,
+                    y: this.y + this.height / 2
+                } // Left
+                ];
+                points.forEach(point => {
+                    ctx.fillStyle = 'red';
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, CIRCLE_RADIUS, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+
+            isClicked(mouseX, mouseY) {
+                return mouseX >= this.x && mouseX <= this.x + this.width &&
+                    mouseY >= this.y && mouseY <= this.y + this.height;
+            }
+
+            showInfo() {
+                infoBox.style.display = 'block';
+                nameInput.value = this.name;
+                infoInput.value = this.info;
+                imageInput.value = this.imageSrc || '';
+                selectedNode = this;
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(offsetX, offsetY);
+            ctx.scale(scale, scale);
+
+            // Draw connections
+            for (const connection of connections) {
+                ctx.beginPath();
+                ctx.moveTo(connection.node1.x + connection.node1.width / 2, connection.node1.y + connection.node1.height / 2);
+                ctx.lineTo(connection.node2.x + connection.node2.width / 2, connection.node2.y + connection.node2.height / 2);
+                ctx.strokeStyle = 'black';
+                ctx.stroke();
+            }
+
+            // Draw nodes
+            for (const node of nodes) {
+                node.draw();
+            }
+
+            ctx.restore();
+        }
+
+        canvas.addEventListener('mousedown', (event) => {
+            const mouseX = (event.offsetX - offsetX) / scale;
+            const mouseY = (event.offsetY - offsetY) / scale;
+
+            if (newNodeMode) {
+                nodes.push(new Node(mouseX, mouseY));
+                draw();
+                newNodeMode = false;
+            } else {
+                selectedNode = nodes.find(node => node.isClicked(mouseX, mouseY));
+                if (selectedNode) {
+                    isDraggingNode = true;
+                    dragOffsetX = mouseX - selectedNode.x;
+                    dragOffsetY = mouseY - selectedNode.y;
+                    selectedNode.showInfo();
+                } else {
+                    const pointClicked = checkConnectionPoint(mouseX, mouseY);
+                    if (pointClicked) {
+                        if (!startConnectNode) {
+                            startConnectNode = pointClicked.node;
+                        } else {
+                            connections.push({
+                                node1: startConnectNode,
+                                node2: pointClicked.node
+                            });
+                            startConnectNode = null; // Reset for the next connection
+                        }
+                    } else {
+                        isDraggingCanvas = true;
+                        dragOffsetX = event.offsetX;
+                        dragOffsetY = event.offsetY;
+                    }
+                }
+            }
+        });
+
+        canvas.addEventListener('mousemove', (event) => {
+            if (isDraggingCanvas) {
+                const dx = event.offsetX - dragOffsetX;
+                const dy = event.offsetY - dragOffsetY;
+                offsetX += dx;
+                offsetY += dy;
                 dragOffsetX = event.offsetX;
                 dragOffsetY = event.offsetY;
+                draw();
+            } else if (isDraggingNode && selectedNode) {
+                const mouseX = (event.offsetX - offsetX) / scale;
+                const mouseY = (event.offsetY - offsetY) / scale;
+                selectedNode.x = mouseX - dragOffsetX;
+                selectedNode.y = mouseY - dragOffsetY;
+                draw();
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDraggingNode = false;
+            isDraggingCanvas = false;
+        });
+
+        canvas.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            const zoomAmount = -event.deltaY * 0.001;
+            scale = Math.min(Math.max(.125, scale + zoomAmount), 4); // Limit the zoom scale
+            draw();
+        });
+
+        function checkConnectionPoint(mouseX, mouseY) {
+            for (const node of nodes) {
+                const points = [{
+                    x: node.x + node.width / 2,
+                    y: node.y
+                }, // Top
+                {
+                    x: node.x + node.width,
+                    y: node.y + node.height / 2
+                }, // Right
+                {
+                    x: node.x + node.width / 2,
+                    y: node.y + node.height
+                }, // Bottom
+                {
+                    x: node.x,
+                    y: node.y + node.height / 2
+                } // Left
+                ];
+                for (const point of points) {
+                    if (Math.sqrt((mouseX - point.x) ** 2 + (mouseY - point.y) ** 2) < CIRCLE_RADIUS) {
+                        return {
+                            node
+                        };
+                    }
+                }
+            }
+            return null;
+        }
+
+        function startNewNode() {
+            newNodeMode = true;
+            infoBox.style.display = 'none';
+        }
+
+        function saveNode() {
+            if (selectedNode) {
+                selectedNode.name = nameInput.value;
+                selectedNode.info = infoInput.value;
+                selectedNode.imageSrc = imageInput.value;
+                selectedNode.image = new Image();
+                if (selectedNode.imageSrc) {
+                    selectedNode.image.src = selectedNode.imageSrc;
+                }
+                draw();
             }
         }
-    }
-});
 
-canvas.addEventListener('mousemove', (event) => {
-    if (isDraggingCanvas) {
-        const dx = event.offsetX - dragOffsetX;
-        const dy = event.offsetY - dragOffsetY;
-        offsetX += dx;
-        offsetY += dy;
-        dragOffsetX = event.offsetX;
-        dragOffsetY = event.offsetY;
-        draw();
-    } else if (isDraggingNode && selectedNode) {
-        const mouseX = (event.offsetX - offsetX) / scale;
-        const mouseY = (event.offsetY - offsetY) / scale;
-        selectedNode.x = mouseX - dragOffsetX;
-        selectedNode.y = mouseY - dragOffsetY;
-        draw();
-    }
-});
-
-canvas.addEventListener('mouseup', () => {
-    isDraggingNode = false;
-    isDraggingCanvas = false;
-});
-
-canvas.addEventListener('wheel', (event) => {
-    event.preventDefault();
-    const zoomAmount = -event.deltaY * 0.001;
-    scale = Math.min(Math.max(.125, scale + zoomAmount), 4); // Limit the zoom scale
-    draw();
-});
-
-function checkConnectionPoint(mouseX, mouseY) {
-    for (const node of nodes) {
-        const points = [{
-                x: node.x + node.width / 2,
-                y: node.y
-            }, // Top
-            {
-                x: node.x + node.width,
-                y: node.y + node.height / 2
-            }, // Right
-            {
-                x: node.x + node.width / 2,
-                y: node.y + node.height
-            }, // Bottom
-            {
-                x: node.x,
-                y: node.y + node.height / 2
-            } // Left
-        ];
-        for (const point of points) {
-            if (Math.sqrt((mouseX - point.x) ** 2 + (mouseY - point.y) ** 2) < CIRCLE_RADIUS) {
-                return {
-                    node
-                };
+        function deleteNode() {
+            if (selectedNode) {
+                nodes = nodes.filter(node => node !== selectedNode);
+                connections = connections.filter(connection => connection.node1 !== selectedNode && connection.node2 !== selectedNode);
+                selectedNode = null;
+                infoBox.style.display = 'none';
+                draw();
             }
         }
-    }
-    return null;
-}
 
-function startNewNode() {
-    newNodeMode = true;
-    infoBox.style.display = 'none';
-}
-
-function saveNode() {
-    if (selectedNode) {
-        selectedNode.name = nameInput.value;
-        selectedNode.info = infoInput.value;
-        selectedNode.imageSrc = imageInput.value;
-        selectedNode.image = new Image();
-        if (selectedNode.imageSrc) {
-            selectedNode.image.src = selectedNode.imageSrc;
+        function closeInfoBox() {
+            infoBox.style.display = 'none';
         }
-        draw();
-    }
-}
 
-function deleteNode() {
-    if (selectedNode) {
-        nodes = nodes.filter(node => node !== selectedNode);
-        connections = connections.filter(connection => connection.node1 !== selectedNode && connection.node2 !== selectedNode);
-        selectedNode = null;
-        infoBox.style.display = 'none';
-        draw();
-    }
-}
+        function saveData() {
+            const data = {
+                nodes: nodes.map(node => ({
+                    x: node.x,
+                    y: node.y,
+                    name: node.name,
+                    info: node.info,
+                    imageSrc: node.imageSrc
+                })),
+                connections: connections.map(connection => ({
+                    node1: nodes.indexOf(connection.node1),
+                    node2: nodes.indexOf(connection.node2)
+                }))
+            };
 
-function closeInfoBox() {
-    infoBox.style.display = 'none';
-}
-
-function saveData() {
-    const data = {
-        nodes: nodes.map(node => ({
-            x: node.x,
-            y: node.y,
-            name: node.name,
-            info: node.info,
-            imageSrc: node.imageSrc
-        })),
-        connections: connections.map(connection => ({
-            node1: nodes.indexOf(connection.node1),
-            node2: nodes.indexOf(connection.node2)
-        }))
-    };
-    localStorage.setItem('familyTreeData', JSON.stringify(data));
-    alert('Data saved!');
-    console.log(JSON.stringify(data));
-}
-
-function loadData() {
-    const data = JSON.parse(localStorage.getItem('familyTreeData'));
-    if (data) {
-        nodes = data.nodes.map(nodeData => new Node(nodeData.x, nodeData.y, nodeData.name, nodeData.info, nodeData.imageSrc));
-        connections = data.connections.map(connection => ({
-            node1: nodes[connection.node1],
-            node2: nodes[connection.node2]
-        }));
-        draw();
-        alert('Data loaded!');
-    } else {
-        alert('No saved data found.');
-        const manualPrompt = prompt('Enter');
-        const manualData = JSON.parse(manualPrompt);
-        if (manualPrompt) {
-            nodes = manualData.nodes.map(nodeData => new Node(nodeData.x, nodeData.y, nodeData.name, nodeData.info, nodeData.imageSrc));
-            connections = manualData.connections.map(connection => ({
-                node1: nodes[connection.node1],
-                node2: nodes[connection.node2]
-            }));
+            alert('Copy + Save this:   ' + JSON.stringify(data));
         }
-    }
-}
+        function saveLocalData() {
+            const data = {
+                nodes: nodes.map(node => ({
+                    x: node.x,
+                    y: node.y,
+                    name: node.name,
+                    info: node.info,
+                    imageSrc: node.imageSrc
+                })),
+                connections: connections.map(connection => ({
+                    node1: nodes.indexOf(connection.node1),
+                    node2: nodes.indexOf(connection.node2)
+                }))
+            };
+            localStorage.setItem('familyTreeData', JSON.stringify(data));
+            alert('Data saved!');
+        }
+
+        function loadData() {
+            const manualPrompt = prompt('Enter');
+            const manualData = JSON.parse(manualPrompt);
+            if (manualPrompt) {
+                nodes = manualData.nodes.map(nodeData => new Node(nodeData.x, nodeData.y, nodeData.name, nodeData.info, nodeData.imageSrc));
+                connections = manualData.connections.map(connection => ({
+                    node1: nodes[connection.node1],
+                    node2: nodes[connection.node2]
+                }));
+            }
+            draw();
+        }
+
+        function loadSavedData() {
+            const data = JSON.parse(localStorage.getItem('familyTreeData'));
+            if (data) {
+                nodes = data.nodes.map(nodeData => new Node(nodeData.x, nodeData.y, nodeData.name, nodeData.info, nodeData.imageSrc));
+                connections = data.connections.map(connection => ({
+                    node1: nodes[connection.node1],
+                    node2: nodes[connection.node2]
+                }));
+                draw();
+                alert('Data loaded!');
+            } else {
+                alert('No saved data found.');
+            }
+        }
 
 
-draw(); // Initial draw
+        draw(); 
     </script>
 </body>
 

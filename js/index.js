@@ -25,3 +25,4 @@ function scene(index) {
 }
 
 scene(0);
+
