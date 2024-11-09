@@ -132,8 +132,9 @@
         <div class="col-md-4 d-flex align-items-center">
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
         </div>
-        <button id="theme-toggle" class="btn btn-primary">Toggle Theme</button>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill" aria-info-hidden="true"></i> Dark</button>
+            </li>
             <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
                         class="bi bi-github"></i></a></li>
         </ul>
@@ -150,17 +151,22 @@
     <script type="application/javascript">
         scene(1);
         const themeToggle = document.getElementById('theme-toggle');
-
 themeToggle.addEventListener('click', () => {
   const htmlElement = document.documentElement;
   const currentTheme = htmlElement.getAttribute('data-bs-theme');
 
   if (currentTheme === 'light') {
     htmlElement.setAttribute('data-bs-theme', 'dark');
-  } else if (currentTheme === 'dark') {
+    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+    
+    } else if (currentTheme === 'dark') {
     htmlElement.setAttribute('data-bs-theme', 'light');
+    document.getElementById('theme-toggle').innerHTML = `<i class="bi-moon-stars-fill notranslate" aria-info-hidden="true"></i> Dark`;
+        
   } else {
     htmlElement.setAttribute('data-bs-theme', 'dark');
+    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+    
   }
 });
     </script>
