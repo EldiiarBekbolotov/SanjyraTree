@@ -57,12 +57,13 @@
         Sorry, your browser does not support JavaScript, which is needed to run this application!
     </noscript>
 
-    <nav class="navbar navbar-expand-lg bg-dark bg-gradient navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid">
-            <a class="nav-link text-light" href="index.html"><i class="bi-arrow-left" aria-hidden="true"></i>Home Page</a>
-     <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family
+            <a class="nav-link text-light" href="index.html"><i class="bi-arrow-left" aria-hidden="true"></i>Home
+                Page</a>
+            <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family
                 Sanjura</a>
-                   </div>
+        </div>
 
 
     </nav>
@@ -147,18 +148,18 @@
         }
         const themeToggle = document.getElementById('theme-toggle');
 
-themeToggle.addEventListener('click', () => {
-  const htmlElement = document.documentElement;
-  const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        themeToggle.addEventListener('click', () => {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
 
-  if (currentTheme === 'light') {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-  } else if (currentTheme === 'dark') {
-    htmlElement.setAttribute('data-bs-theme', 'light');
-  } else {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-  }
-});
+            if (currentTheme === 'light') {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+            } else if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-bs-theme', 'light');
+            } else {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+            }
+        });
     </script>
     <script type="application/javascript">
         const canvas = document.getElementById('familyTreeCanvas');
