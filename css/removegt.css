@@ -69,18 +69,22 @@ select.google_translate_element {
 }
 
 .activity-root {
-    display: hide !important;
+    display: none !important;
 }
 
 .status-message {
-    display: hide !important;
+    display: none !important;
 }
 
 .started-activity-container {
-    display: hide !important;
+    display: none !important;
 }
 
 .VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
     background-color: transparent !important;
     box-shadow: none !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+    display: none !important;
 }

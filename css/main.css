@@ -23,7 +23,7 @@ i {
 }
 
 /* no select */
-.no-select {
+.noselect {
     -webkit-user-select: none;
     /* Safari */
     -khtml-user-select: none;

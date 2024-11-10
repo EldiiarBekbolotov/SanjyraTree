@@ -63,6 +63,7 @@
                 Page</a>
             <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family
                 Sanjura</a>
+                
         </div>
 
 
@@ -74,11 +75,10 @@
             <button role="button" class="new-node-button btn btn-success mx-2 my-2" onclick="startNewNode()"><i
                     class="bi-person-add" aria-hidden="true"></i> New Member</button>
             <button type="button" class="btn btn-primary mx-2 my-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Launch demo modal
+                data-bs-target="#exampleModal" onclick="saveData()">
+                <i class="bi-save"
+                    aria-hidden="true"></i> Get Save Code
             </button>
-            <button role='button' class="btn btn-primary text-light mx-2 my-2" onclick="saveData()"><i class="bi-save"
-                    aria-hidden="true"></i> Get Save Code</button>
 
             <button role='button' class="btn btn-outline-secondary mx-2 my-2" onclick="loadData()"><i class="bi-upload"
                     aria-hidden="true"></i> Load With Save Code</button>
@@ -106,7 +106,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal();"></button>
                 </div>
                 <div class="modal-body">
                     ...
@@ -114,7 +114,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                         onclick="closeModal();">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    
                 </div>
             </div>
         </div>
@@ -124,8 +124,9 @@
         <div class="col-md-4 d-flex align-items-center">
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
         </div>
-        <button id="theme-toggle" class="btn btn-primary">Toggle Theme</button>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill" aria-info-hidden="true"></i> Dark</button>
+            </li>
             <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
                         class="bi bi-github"></i></a></li>
         </ul>
@@ -142,24 +143,30 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="application/javascript">
+         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
         function closeModal() {
-            const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-            myModal.hide();
-        }
+        myModal.hide();
+    }
+
         const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  const htmlElement = document.documentElement;
+  const currentTheme = htmlElement.getAttribute('data-bs-theme');
 
-        themeToggle.addEventListener('click', () => {
-            const htmlElement = document.documentElement;
-            const currentTheme = htmlElement.getAttribute('data-bs-theme');
-
-            if (currentTheme === 'light') {
-                htmlElement.setAttribute('data-bs-theme', 'dark');
-            } else if (currentTheme === 'dark') {
-                htmlElement.setAttribute('data-bs-theme', 'light');
-            } else {
-                htmlElement.setAttribute('data-bs-theme', 'dark');
-            }
-        });
+  if (currentTheme === 'light') {
+    htmlElement.setAttribute('data-bs-theme', 'dark');
+    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+    
+    } else if (currentTheme === 'dark') {
+    htmlElement.setAttribute('data-bs-theme', 'light');
+    document.getElementById('theme-toggle').innerHTML = `<i class="bi-moon-stars-fill notranslate" aria-info-hidden="true"></i> Dark`;
+        
+  } else {
+    htmlElement.setAttribute('data-bs-theme', 'dark');
+    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+    
+  }
+});
     </script>
     <script type="application/javascript">
         const canvas = document.getElementById('familyTreeCanvas');
@@ -452,7 +459,9 @@
                 }))
             };
 
-            alert('Copy + Save this:   ' + JSON.stringify(data));
+            //alert('Copy + Save this:   ' + JSON.stringify(data));
+
+            document.querySelector('#exampleModal .modal-body').innerHTML = `<p class='noselect'>Copy + Save this:</p><code style='margin-top:30px;'>${JSON.stringify(data)}</code>`;
         }
         function saveLocalData() {
             const data = {
