@@ -63,7 +63,7 @@
                 Page</a>
             <a class="navbar-brand" href="index.html"><i class="bi-person-arms-up" aria-hidden="true"></i>Family
                 Sanjura</a>
-                
+
         </div>
 
 
@@ -76,8 +76,7 @@
                     class="bi-person-add" aria-hidden="true"></i> New Member</button>
             <button type="button" class="btn btn-primary mx-2 my-2" data-bs-toggle="modal"
                 data-bs-target="#exampleModal" onclick="saveData()">
-                <i class="bi-save"
-                    aria-hidden="true"></i> Get Save Code
+                <i class="bi-save" aria-hidden="true"></i> Get Save Code
             </button>
 
             <button role='button' class="btn btn-outline-secondary mx-2 my-2" onclick="loadData()"><i class="bi-upload"
@@ -106,7 +105,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal();"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="closeModal();"></button>
                 </div>
                 <div class="modal-body">
                     ...
@@ -114,7 +114,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                         onclick="closeModal();">Close</button>
-                    
+
                 </div>
             </div>
         </div>
@@ -125,7 +125,8 @@
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
         </div>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill" aria-info-hidden="true"></i> Dark</button>
+            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill"
+                        aria-info-hidden="true"></i> Dark</button>
             </li>
             <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
                         class="bi bi-github"></i></a></li>
@@ -143,30 +144,30 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="application/javascript">
-         const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
         function closeModal() {
-        myModal.hide();
-    }
+            myModal.hide();
+        }
 
         const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-  const htmlElement = document.documentElement;
-  const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        themeToggle.addEventListener('click', () => {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
 
-  if (currentTheme === 'light') {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
-    
-    } else if (currentTheme === 'dark') {
-    htmlElement.setAttribute('data-bs-theme', 'light');
-    document.getElementById('theme-toggle').innerHTML = `<i class="bi-moon-stars-fill notranslate" aria-info-hidden="true"></i> Dark`;
-        
-  } else {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
-    
-  }
-});
+            if (currentTheme === 'light') {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+
+            } else if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-bs-theme', 'light');
+                document.getElementById('theme-toggle').innerHTML = `<i class="bi-moon-stars-fill notranslate" aria-info-hidden="true"></i> Dark`;
+
+            } else {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+
+            }
+        });
     </script>
     <script type="application/javascript">
         const canvas = document.getElementById('familyTreeCanvas');
@@ -179,30 +180,6 @@ themeToggle.addEventListener('click', () => {
         canvas.height = canvas.getBoundingClientRect().height * devicePixelRatio;
         ctx.scale(devicePixelRatio, devicePixelRatio);
 
-        /*function wrapText(text, maxWidth, maxHeight, lineHeight) {
-          const words = text.split(' ');
-          let currentLine = "";
-          let lines = [];
-        
-          for (let i = 0; i < words.length; i++) {
-            const word = words[i];
-            const testLine = currentLine + " " + word;
-            const metrics = ctx.measureText(testLine);
-            const testWidth = metrics.width;
-            const testHeight = lines.length * lineHeight;
-        
-            if (testWidth > maxWidth || testHeight > maxHeight) {
-              lines.push(currentLine);
-              currentLine = word;
-            } else {
-              currentLine = testLine;
-            }
-          }
-        
-          lines.push(currentLine);
-          return lines;
-        }*/
-
         let nodes = [];
         let connections = [];
         let selectedNode = null;
@@ -214,7 +191,7 @@ themeToggle.addEventListener('click', () => {
         let offsetX = 0,
             offsetY = 0;
         let newNodeMode = false;
-        let startConnectNode = null;
+        let startConnectNode = null; // Store the start node for connections
         const CIRCLE_RADIUS = 15;
 
         class Node {
@@ -239,11 +216,7 @@ themeToggle.addEventListener('click', () => {
                 ctx.fillStyle = "black";
                 ctx.font = 12 + "px Arial";
                 ctx.fillText(this.name, this.x + 10, this.y + 20);
-                /*const wrappedLines = wrapText(this.name, this.width, this.height, 12);  // Adjust width, height, and line height as needed
-                
-        for (let i = 0; i < wrappedLines.length; i++) {
-          ctx.fillText(wrappedLines[i], this.x + 10, this.y + 20 + (i * 15));
-        }*/
+
                 if (this.image.src) {
                     this.image.onload = () => {
                         ctx.drawImage(this.image, this.x + this.width - 50, this.y + 5, 40, 40);
@@ -254,34 +227,21 @@ themeToggle.addEventListener('click', () => {
             }
 
             drawConnectionPoints() {
-                const points = [{
-                    x: this.x + this.width / 2,
-                    y: this.y
-                }, // Top
-                {
-                    x: this.x + this.width,
-                    y: this.y + this.height / 2
-                }, // Right
-                {
-                    x: this.x + this.width / 2,
-                    y: this.y + this.height
-                }, // Bottom
-                {
-                    x: this.x,
-                    y: this.y + this.height / 2
-                } // Left
-                ];
-                points.forEach(point => {
-                    ctx.fillStyle = 'red';
-                    ctx.beginPath();
-                    ctx.arc(point.x, point.y, CIRCLE_RADIUS, 0, Math.PI * 2);
-                    ctx.fill();
-                });
+                const point = { x: this.x + this.width / 2, y: this.y + this.height };
+                ctx.fillStyle = 'black';
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, CIRCLE_RADIUS, 0, Math.PI * 2);
+                ctx.fill();
             }
 
             isClicked(mouseX, mouseY) {
                 return mouseX >= this.x && mouseX <= this.x + this.width &&
                     mouseY >= this.y && mouseY <= this.y + this.height;
+            }
+
+            isBottomConnectionClicked(mouseX, mouseY) {
+                const bottomPoint = { x: this.x + this.width / 2, y: this.y + this.height };
+                return Math.sqrt((mouseX - bottomPoint.x) ** 2 + (mouseY - bottomPoint.y) ** 2) < CIRCLE_RADIUS;
             }
 
             showInfo() {
@@ -299,7 +259,6 @@ themeToggle.addEventListener('click', () => {
             ctx.translate(offsetX, offsetY);
             ctx.scale(scale, scale);
 
-            // Draw connections
             for (const connection of connections) {
                 ctx.beginPath();
                 ctx.moveTo(connection.node1.x + connection.node1.width / 2, connection.node1.y + connection.node1.height / 2);
@@ -308,7 +267,6 @@ themeToggle.addEventListener('click', () => {
                 ctx.stroke();
             }
 
-            // Draw nodes
             for (const node of nodes) {
                 node.draw();
             }
@@ -327,27 +285,29 @@ themeToggle.addEventListener('click', () => {
             } else {
                 selectedNode = nodes.find(node => node.isClicked(mouseX, mouseY));
                 if (selectedNode) {
-                    isDraggingNode = true;
-                    dragOffsetX = mouseX - selectedNode.x;
-                    dragOffsetY = mouseY - selectedNode.y;
-                    selectedNode.showInfo();
-                } else {
-                    const pointClicked = checkConnectionPoint(mouseX, mouseY);
-                    if (pointClicked) {
+                    if (selectedNode.isBottomConnectionClicked(mouseX, mouseY)) {
                         if (!startConnectNode) {
-                            startConnectNode = pointClicked.node;
+                            startConnectNode = selectedNode;
                         } else {
-                            connections.push({
-                                node1: startConnectNode,
-                                node2: pointClicked.node
-                            });
-                            startConnectNode = null; // Reset for the next connection
+                            if (startConnectNode !== selectedNode) {
+                                connections.push({
+                                    node1: startConnectNode,
+                                    node2: selectedNode
+                                });
+                            }
+                            startConnectNode = null;
+                            draw();
                         }
                     } else {
-                        isDraggingCanvas = true;
-                        dragOffsetX = event.offsetX;
-                        dragOffsetY = event.offsetY;
+                        isDraggingNode = true;
+                        dragOffsetX = mouseX - selectedNode.x;
+                        dragOffsetY = mouseY - selectedNode.y;
+                        selectedNode.showInfo();
                     }
+                } else {
+                    isDraggingCanvas = true;
+                    dragOffsetX = event.offsetX;
+                    dragOffsetY = event.offsetY;
                 }
             }
         });
@@ -378,39 +338,9 @@ themeToggle.addEventListener('click', () => {
         canvas.addEventListener('wheel', (event) => {
             event.preventDefault();
             const zoomAmount = -event.deltaY * 0.001;
-            scale = Math.min(Math.max(.125, scale + zoomAmount), 4); // Limit the zoom scale
+            scale = Math.min(Math.max(0.125, scale + zoomAmount), 4);
             draw();
         });
-
-        function checkConnectionPoint(mouseX, mouseY) {
-            for (const node of nodes) {
-                const points = [{
-                    x: node.x + node.width / 2,
-                    y: node.y
-                }, // Top
-                {
-                    x: node.x + node.width,
-                    y: node.y + node.height / 2
-                }, // Right
-                {
-                    x: node.x + node.width / 2,
-                    y: node.y + node.height
-                }, // Bottom
-                {
-                    x: node.x,
-                    y: node.y + node.height / 2
-                } // Left
-                ];
-                for (const point of points) {
-                    if (Math.sqrt((mouseX - point.x) ** 2 + (mouseY - point.y) ** 2) < CIRCLE_RADIUS) {
-                        return {
-                            node
-                        };
-                    }
-                }
-            }
-            return null;
-        }
 
         function startNewNode() {
             newNodeMode = true;
@@ -458,11 +388,9 @@ themeToggle.addEventListener('click', () => {
                     node2: nodes.indexOf(connection.node2)
                 }))
             };
-
-            //alert('Copy + Save this:   ' + JSON.stringify(data));
-
             document.querySelector('#exampleModal .modal-body').innerHTML = `<p class='noselect'>Copy + Save this:</p><code style='margin-top:30px;'>${JSON.stringify(data)}</code>`;
         }
+
         function saveLocalData() {
             const data = {
                 nodes: nodes.map(node => ({
@@ -509,9 +437,9 @@ themeToggle.addEventListener('click', () => {
             }
         }
 
-
-        draw(); 
+        draw();
     </script>
+
 </body>
 
 </html>
