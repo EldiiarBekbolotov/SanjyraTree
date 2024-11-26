@@ -8,8 +8,10 @@
     <meta name="author" content="Eldiiar Bekbolotov" />
     <meta name="keywords" content="SanjuraByEldiiar,FamilyTree,Application,EldiiarBekbolotov" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
     <title>FamilySanjura</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -106,7 +108,7 @@
 
         <div class="container p-5">
             <h1>What is Family Sanjura</h1>
-            <p>About</p>
+            <p>A family tree editor created by Eldiiar Bekbolotov in 2024.</p>
         </div>
     </div>
 
@@ -116,6 +118,57 @@
             <h1 class="display-1">Get Started</h1>
 
             <p class="lead">by Eldiiar Bekbolotov<br />Read on to learn more about Family Sanjura.</p>
+        </div>
+
+        <div class="container p-5">
+            <h1>Functionalities</h1>
+            <p>Updated November 26, 2024.</p>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Feature</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>New Member</td>
+                    <td>Allows users to create a new member profile with inputs for <strong>Name</strong>, <strong>Description</strong>, and <strong>Profile Picture</strong>.</td>
+                    <td>To add detailed information about family members or individuals for visualization.</td>
+                  </tr>
+                  <tr>
+                    <td>Drag, Zoom, and Move</td>
+                    <td>Users can drag family members to rearrange them, zoom in/out for better visibility, and move across the editor canvas.</td>
+                    <td>To provide a dynamic and interactive way to customize the family tree layout.</td>
+                  </tr>
+                  <tr>
+                    <td>Get Save Code</td>
+                    <td>Generates a unique save code representing the current state of the editor and family tree.</td>
+                    <td>To export and share data for future use or collaboration.</td>
+                  </tr>
+                  <tr>
+                    <td>Load Save Code</td>
+                    <td>Enables users to input a previously generated save code to restore a saved family tree state.</td>
+                    <td>To easily recover and continue working on previously saved data.</td>
+                  </tr>
+                  <tr>
+                    <td>Local Save</td>
+                    <td>Saves the app's data locally on the user’s device using browser storage.</td>
+                    <td>To allow quick and reliable saving without external codes or connectivity.</td>
+                  </tr>
+                  <tr>
+                    <td>Load Local Save</td>
+                    <td>Loads the locally saved data directly from the user's browser storage for seamless recovery.</td>
+                    <td>To provide a user-friendly way to continue from where they left off on the same device.</td>
+                  </tr>
+                  <tr>
+                    <td>Responsive Design</td>
+                    <td>The app and editor are fully responsive, adapting to different screen sizes, browsers, and devices for optimal usability.</td>
+                    <td>To ensure accessibility and usability across a variety of platforms.</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
 
@@ -131,7 +184,8 @@
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
         </div>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill" aria-info-hidden="true"></i> Dark</button>
+            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill"
+                        aria-info-hidden="true"></i> Dark</button>
             </li>
             <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
                         class="bi bi-github"></i></a></li>
@@ -147,26 +201,26 @@
     <script type='text/javascript' src="js/index.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="application/javascript">
-        scene(1);
+        scene(0);
         const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-  const htmlElement = document.documentElement;
-  const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        themeToggle.addEventListener('click', () => {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
 
-  if (currentTheme === 'light') {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
-    
-    } else if (currentTheme === 'dark') {
-    htmlElement.setAttribute('data-bs-theme', 'light');
-    document.getElementById('theme-toggle').innerHTML = `<i class="bi-moon-stars-fill notranslate" aria-info-hidden="true"></i> Dark`;
-        
-  } else {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-    document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
-    
-  }
-});
+            if (currentTheme === 'light') {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+
+            } else if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-bs-theme', 'light');
+                document.getElementById('theme-toggle').innerHTML = `<i class="bi-moon-stars-fill notranslate" aria-info-hidden="true"></i> Dark`;
+
+            } else {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                document.getElementById('theme-toggle').innerHTML = `<i class="bi-sun-fill notranslate" aria-info-hidden="true"></i> Light`;
+
+            }
+        });
     </script>
 
 </body>
