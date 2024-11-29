@@ -3,17 +3,21 @@
 
 <head>
     <meta http-equiv="Content-Language" content="en_US" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Family Sanjura" />
+    <meta name="description" content="SanjiraTree" />
     <meta name="author" content="Eldiiar Bekbolotov" />
-    <meta name="keywords" content="SanjuraByEldiiar,FamilyTree,Application,EldiiarBekbolotov" />
+    <meta name="keywords" content="SanjiraTreeByEldiiar,FamilyTree,Application,EldiiarBekbolotov" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
-    <title>FamilySanjura</title>
+    <title>SanjiraTree</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.woff">
@@ -34,7 +38,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#!" onclick="scene(0);"><i class="bi-person-arms-up"
-                    aria-hidden="true"></i>Family Sanjura</a>
+                    aria-hidden="true"></i>SanjiraTree</a>
             <button class="navbar-toggler" style="border:none;outline:none;box-shadow:none;" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,7 +93,7 @@
 
     <div class='scene'>
         <div class='container p-5'>
-            <h1>Family Sanjura</h1>
+            <h1>SanjiraTree</h1>
             <p>by Eldiiar Bekbolotov</p>
 
             <a class="btn btn-primary" role="button" href="editor.html"><i class="bi-diagram-3" aria-hidden="true"></i>
@@ -103,12 +107,15 @@
 
             <h1 class="display-1">About</h1>
 
-            <p class="lead">by Eldiiar Bekbolotov<br />Read on to learn more about Family Sanjura.</p>
+            <p class="lead">by Eldiiar Bekbolotov<br />Read on to learn more about SanjiraTree.</p>
         </div>
 
         <div class="container p-5">
-            <h1>What is Family Sanjura</h1>
+            <h1>What is SanjiraTree</h1>
             <p>A family tree editor created by Eldiiar Bekbolotov in 2024.</p>
+
+            <h2>Development Information</h2>
+            <p>Project started August 15, 2024.</p>
         </div>
     </div>
 
@@ -117,7 +124,7 @@
 
             <h1 class="display-1">Get Started</h1>
 
-            <p class="lead">by Eldiiar Bekbolotov<br />Read on to learn more about Family Sanjura.</p>
+            <p class="lead">by Eldiiar Bekbolotov<br />Read on to learn more about SanjiraTree.</p>
         </div>
 
         <div class="container p-5">
@@ -125,56 +132,62 @@
             <p>Updated November 26, 2024.</p>
             <table class="table table-striped table-bordered">
                 <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Feature</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Purpose</th>
-                  </tr>
+                    <tr>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Description</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>New Member</td>
-                    <td>Allows users to create a new member profile with inputs for <strong>Name</strong>, <strong>Description</strong>, and <strong>Profile Picture</strong>.</td>
-                    <td>To add detailed information about family members or individuals for visualization.</td>
-                  </tr>
-                  <tr>
-                    <td>Drag, Zoom, and Move</td>
-                    <td>Users can drag family members to rearrange them, zoom in/out for better visibility, and move across the editor canvas.</td>
-                    <td>To provide a dynamic and interactive way to customize the family tree layout.</td>
-                  </tr>
-                  <tr>
-                    <td>Get Save Code</td>
-                    <td>Generates a unique save code representing the current state of the editor and family tree.</td>
-                    <td>To export and share data for future use or collaboration.</td>
-                  </tr>
-                  <tr>
-                    <td>Load Save Code</td>
-                    <td>Enables users to input a previously generated save code to restore a saved family tree state.</td>
-                    <td>To easily recover and continue working on previously saved data.</td>
-                  </tr>
-                  <tr>
-                    <td>Local Save</td>
-                    <td>Saves the app's data locally on the user’s device using browser storage.</td>
-                    <td>To allow quick and reliable saving without external codes or connectivity.</td>
-                  </tr>
-                  <tr>
-                    <td>Load Local Save</td>
-                    <td>Loads the locally saved data directly from the user's browser storage for seamless recovery.</td>
-                    <td>To provide a user-friendly way to continue from where they left off on the same device.</td>
-                  </tr>
-                  <tr>
-                    <td>Responsive Design</td>
-                    <td>The app and editor are fully responsive, adapting to different screen sizes, browsers, and devices for optimal usability.</td>
-                    <td>To ensure accessibility and usability across a variety of platforms.</td>
-                  </tr>
+                    <tr>
+                        <td>New Member</td>
+                        <td>Enables users to create detailed profiles for family members by inputting a
+                            <strong>Name</strong>, <strong>Description</strong>, and uploading a <strong>Profile
+                                Picture</strong>. This functionality facilitates the visualization and organization of
+                            individuals within the family tree.</td>
+                    </tr>
+                    <tr>
+                        <td>Drag, Zoom, and Move</td>
+                        <td>Offers an intuitive interface allowing users to rearrange family members through
+                            drag-and-drop functionality, zoom in and out for better visibility, and navigate across the
+                            editor canvas. This ensures a highly customizable and user-friendly experience.</td>
+                    </tr>
+                    <tr>
+                        <td>Get Save Code</td>
+                        <td>Generates a unique save code representing the current state of the family tree editor. This
+                            feature makes it easy to export and share the tree structure for future use or collaborative
+                            purposes.</td>
+                    </tr>
+                    <tr>
+                        <td>Load Save Code</td>
+                        <td>Input a previously generated save code to restore a saved state of the family tree. This
+                            ensures continuity and convenience when working across sessions or devices.</td>
+                    </tr>
+                    <tr>
+                        <td>Local Save</td>
+                        <td>Save data directly to your device through browser storage. Saved on your computer until you
+                            clear your local storage.</td>
+                    </tr>
+                    <tr>
+                        <td>Load Local Save</td>
+                        <td>Load previously saved data from your browser storage. Resume your work seamlessly on the
+                            same device.</td>
+                    </tr>
+                    <tr>
+                        <td>Responsive Design</td>
+                        <td><em>SanjiraTree</em> works in different devices (desktop computers, phone, and tablets),
+                            screen sizes, and browsers, ensuring an optimal user experience.</td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
+
         </div>
     </div>
 
     <div class="scene">
         <div class="container p-5">
             <h1>Help</h1>
+            <p>Have questions?</p>
+            <p>This area is under construction.</p>
         </div>
     </div>
 
@@ -188,7 +201,7 @@
                         aria-info-hidden="true"></i> Dark</button>
             </li>
             <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
-                        class="bi bi-github"></i></a></li>
+                        class="bi bi-github" style="position:relative;top:6px;"></i></a></li>
         </ul>
     </footer>
 

@@ -61,3 +61,8 @@ i {
     padding-bottom: 5vh;
     font-size: 5rem;
 }
+
+button {
+    padding: 0 16px !important;
+    height: 36px;
+}
