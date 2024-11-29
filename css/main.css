@@ -1,3 +1,11 @@
+:root {
+    --logo-navbar-color: #FFF;
+    --logo-color: #000;
+}
+[data-bs-theme=dark] {
+    --logo-navbar-color: #FFF;
+    --logo-color: #FFF;
+}
 html,
 body {
     position: static !important;
@@ -7,6 +15,34 @@ body {
     padding: 0;
     scroll-behavior: smooth;
 }
+.dropdown-menu {
+    opacity: 0;
+    animation: slide-in 0.35s ease-out forwards;
+    -webkit-animation: slide-in 0.35s ease-out forwards;
+  }
+@keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0rem);
+    }
+  }
+  
+  @-webkit-keyframes slide-in {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(1rem);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0rem);
+    }
+  }
+  
+  
 
 @media (prefers-reduced-motion: reduce) {
     html {
