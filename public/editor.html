@@ -108,19 +108,19 @@
 
         <canvas id="familyTreeCanvas" width='600' height='600'></canvas>
         <div class="d-flex align-content-end flex-wrap">
-            <button role="button" class="new-node-button btn btn-success mx-2 my-1" onclick="startNewNode()"><i
+            <button role="button" class="new-node-button btn btn-success mx-2 my-1 ripple"data-ripple-color="rgba(255,255,255,0.5)" onclick="startNewNode()"><i
                     class="bi-person-add" aria-hidden="true"></i> New Member</button>
-            <button type="button" class="btn btn-primary mx-2 my-1" data-bs-toggle="modal"
+            <button type="button" class="btn btn-primary mx-2 my-1 ripple"data-ripple-color="rgba(255,255,255,0.5)" data-bs-toggle="modal"
                 data-bs-target="#exampleModal" onclick="saveData()">
                 <i class="bi-save" aria-hidden="true"></i> Get Save Code
             </button>
 
-            <button role='button' class="btn btn-outline-secondary mx-2 my-1" onclick="loadData()"><i class="bi-upload"
+            <button role='button' class="btn btn-outline-secondary mx-2 my-1 ripple"data-ripple-color="rgba(255,255,255,0.5)" onclick="loadData()"><i class="bi-upload"
                     aria-hidden="true"></i> Load Save Code</button>
-            <button role='button' class="btn btn-danger text-light mx-2 my-1" onclick="saveLocalData()"><i
+            <button role='button' class="btn btn-danger text-light mx-2 my-1 ripple"data-ripple-color="rgba(255,255,255,0.5)" onclick="saveLocalData()"><i
                     class="bi-save" aria-hidden="true"></i> Local Save</button>
 
-            <button role='button' class="btn btn-outline-secondary mx-2 my-1" onclick="loadSavedData()"><i
+            <button role='button' class="btn btn-outline-secondary mx-2 my-1 ripple"data-ripple-color="rgba(255,255,255,0.5)" onclick="loadSavedData()"><i
                     class="bi-upload" aria-hidden="true"></i> Load Local Save</button>
         </div>
         <div id="infoBox" class="info-box card">
@@ -146,17 +146,17 @@
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Get Save Code</h1>
+                    <button type="button" class="btn-close"style='height:30px;' data-bs-dismiss="modal" aria-label="Close"
                         onclick="closeModal();"></button>
                 </div>
                 <div class="modal-body">
                     ...
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="copyModal();"><i
+                    <button type="button" class="btn btn-secondary ripple"data-ripple-color="rgba(255,255,255,0.65)" data-bs-dismiss="modal" onclick="copyModal();"><i
                             class="bi-copy" aria-hidden="true"></i> Copy</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    <button type="button" class="btn btn-secondary ripple"data-ripple-color="rgba(255,255,255,0.5)" data-bs-dismiss="modal"
                         onclick="closeModal();">Close</button>
 
                 </div>
@@ -177,7 +177,7 @@
         <div class="col-md-4 d-flex align-items-center">
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
         </div>
-        <button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill"
+        <button id="theme-toggle" class="btn btn-primary notranslate ripple"data-ripple-color="rgba(255,255,255,0.5)"><i class="bi-moon-stars-fill"
             aria-info-hidden="true"></i> Dark</button>
     </footer>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -666,6 +666,37 @@
             draw();
         }
         //preloadData();
+
+        document.querySelectorAll('.ripple').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        var div = document.createElement('div');
+        var btnOffset = button.getBoundingClientRect();
+        var xPos = event.clientX - btnOffset.left;
+        var yPos = event.clientY - btnOffset.top;
+
+        div.className = 'ripple-effect';
+
+        var ripple = button.querySelector('.ripple-effect');
+        var buttonHeight = button.offsetHeight;
+
+        if (ripple) {
+            ripple.remove();
+        }
+
+        div.style.height = buttonHeight + 'px';
+        div.style.width = buttonHeight + 'px';
+        div.style.top = (yPos - buttonHeight / 2) + 'px';
+        div.style.left = (xPos - buttonHeight / 2) + 'px';
+        div.style.background = button.getAttribute('data-ripple-color');
+
+        button.appendChild(div);
+
+        setTimeout(function() {
+            div.remove();
+        }, 2000);
+    });
+});
+  
     </script>
 
 </body>

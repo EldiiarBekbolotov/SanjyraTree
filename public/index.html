@@ -76,7 +76,7 @@
                     </g>
                 </svg>
             </a>
-            <button class="navbar-toggler" style="border:none;outline:none;box-shadow:none;" type="button"
+            <button class="navbar-toggler ripple"data-ripple-color="rgba(255,255,255,0.29)" style="position:relative;border-radius:50%;width:60px;height:60px;border:none;outline:none;box-shadow:none;" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -87,26 +87,26 @@
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(0);"><i class="bi-house-door"
+                        <a class="nav-link"style='position:relative;' href="#!" onclick="scene(0);"><i class="bi-house-door"
                                 aria-hidden="true"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(1);"><i class="bi-info-circle"
+                        <a class="nav-link"style='position:relative;' href="#!" onclick="scene(1);"><i class="bi-info-circle"
                                 aria-hidden="true"></i> About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(2);"><i class="bi-diagram-3"
-                                aria-hidden="true"></i> Get Started</a>
+                        <a class="nav-link"style='position:relative;' href="#!" onclick="scene(2);"><i class="bi-diagram-3"
+                                aria-hidden="true"></i> Guide</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!" onclick="scene(3);"><i class="bi-question-circle"
+                    <li class="nav-item" style="margin-right:12px;">
+                        <a class="nav-link"style='position:relative;' href="#!" onclick="scene(3);"><i class="bi-question-circle"
                                 aria-hidden="true"></i> Help</a>
                     </li>
 
                     <li class="nav-item">
                         <div class="dropdown">
-                            <a class="btn btn-success bg-gradient dropdown-toggle" type="button" id="languageDropdown"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn btn-success bg-gradient dropdown-toggle ripple" type="button" id="languageDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-ripple-color="rgba(255,255,255,0.3)">
                                 <i class="bi-translate" aria-hidden="true"></i> Language
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
@@ -116,6 +116,9 @@
                                         data-lang="ru"><span class="fi fi-ru"></span> Russian</a></li>
                                 <li><a class="dropdown-item lang-en lang-select" href="#googtrans(en|en)"
                                         data-lang="en"><span class="fi fi-us"></span> English</a></li>
+                                        <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|fr)"
+                                            data-lang="zh-CN"><span class="fi fi-fr"></span> French</a>
+                                    </li>
                                 <li><a class="dropdown-item lang-es lang-select" href="#googtrans(en|zh-CN)"
                                         data-lang="zh-CN"><span class="fi fi-cn"></span> Chinese (simplified, PRC)</a>
                                 </li>
@@ -131,7 +134,6 @@
     </nav>
 
     <div class='scene'>
-
         <div class="p-5 text-center bg-body-tertiary rounded-3">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 65" width="300">
                 <g id="SvgjsG2977" featurekey="2ou6gm-0"
@@ -163,8 +165,8 @@
                 The fast & intuitive family tree editor.
             </p>
             <div class="d-inline-flex gap-2 mb-5">
-                <a class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button"
-                    href="editor.html"><i class="bi-diagram-3" aria-hidden="true"></i>
+                <a class="ripple d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button"
+                    href="editor.html" data-ripple-color="#FFF"><i class="bi-diagram-3" aria-hidden="true"></i>
                     Get Started
 
                 </a>
@@ -199,7 +201,7 @@
                 <p class="lead mb-4">Super simple family tree creation. Quickly add thousands of people!</p>
 
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                    <a type="button" class="btn btn-success btn-lg px-4 me-sm-3" href="editor.html"><i
+                    <a type="button" class="btn btn-success btn-lg px-4 me-sm-3 ripple" data-ripple-color="#FFF" href="editor.html"><i
                             class="bi-diagram-3" aria-hidden="true"></i>
                         Get Started</a>
                 </div>
@@ -238,7 +240,7 @@
             <h1>Help Center</h1>
             <p>Need help?</p>
 
-            <a class="btn btn-primary" role="button" href="javascript:scene(3);"><i class="bi-question-circle"
+            <a class="btn btn-primary ripple" data-ripple-color="rgb(255,255,255)" role="button" href="javascript:scene(3);"><i class="bi-question-circle"
                     aria-hidden="true"></i>
                 Help</a>
             <!--<a class="btn btn-primary" role="button" href="#"><i class="bi-download" aria-hidden="true"></i> Import</a>-->
@@ -265,7 +267,7 @@
     <div class="scene">
         <div class="img-container" style="background-image: url(assets/mountainriver.jpg)">
 
-            <h1 class="display-1">Get Started</h1>
+            <h1 class="display-1">Guide</h1>
 
             <p class="lead">by Eldiiar Bekbolotov<br />Read on to learn more about SanjyraTree.</p>
         </div>
@@ -321,6 +323,10 @@
                         <td><em>SanjyraTree</em> works in different devices (desktop computers, phone, and tablets),
                             screen sizes, and browsers, ensuring an optimal user experience.</td>
                     </tr>
+                    <tr>
+                        <td>Multiple Language Support</td>
+                        <td>Change the language of the whole site. Current options: Kyrgyz, Russian, English, Chinese (simplified, PRC), Kazakh</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -341,7 +347,7 @@
             <span class="mb-md-0 text-body-secondary">&copy; 2024 Eldiiar Bekbolotov</span>
         </div>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate"><i class="bi-moon-stars-fill"
+            <li class="ms-3"><button id="theme-toggle" class="btn btn-primary notranslate ripple"data-ripple-color="rgba(255,255,255,0.45)"><i class="bi-moon-stars-fill"
                         aria-info-hidden="true"></i> Dark</button>
             </li>
             <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Longfields" target="_blank"><i
@@ -378,6 +384,36 @@
 
             }
         });
+
+        document.querySelectorAll('.ripple').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        var div = document.createElement('div');
+        var btnOffset = button.getBoundingClientRect();
+        var xPos = event.clientX - btnOffset.left;
+        var yPos = event.clientY - btnOffset.top;
+
+        div.className = 'ripple-effect';
+
+        var ripple = button.querySelector('.ripple-effect');
+        var buttonHeight = button.offsetHeight;
+
+        if (ripple) {
+            ripple.remove();
+        }
+
+        div.style.height = buttonHeight + 'px';
+        div.style.width = buttonHeight + 'px';
+        div.style.top = (yPos - buttonHeight / 2) + 'px';
+        div.style.left = (xPos - buttonHeight / 2) + 'px';
+        div.style.background = button.getAttribute('data-ripple-color');
+
+        button.appendChild(div);
+
+        setTimeout(function() {
+            div.remove();
+        }, 2000);
+    });
+});
     </script>
 
 </body>

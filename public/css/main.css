@@ -1,104 +1,180 @@
 :root {
-    --logo-navbar-color: #FFF;
-    --logo-color: #000;
+  --logo-navbar-color: #FFF;
+  --logo-color: #000;
 }
+
 [data-bs-theme=dark] {
-    --logo-navbar-color: #FFF;
-    --logo-color: #FFF;
+  --logo-navbar-color: #FFF;
+  --logo-color: #FFF;
 }
+
 html,
 body {
-    position: static !important;
-    top: 0px !important;
-    font-family: 'Noto Sans', BlinkMacSystemFont, Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+  position: static !important;
+  top: 0px !important;
+  font-family: 'Noto Sans', BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
+
+.nav-link {
+  transition: border 0.3s, color 1s;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+@media (max-width: 991px) {
+  .nav-link {
+    transition: border 0.3s, color 1s;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    padding-left: 15px;
+  }
+  
+  .nav-link.active {
+    border-left: 2px solid white;
+    border-bottom: 2px solid transparent;
+    color: white;
+    padding-left: 15px;
+  }
+}
+
+.btn.ripple {
+  position: relative !important;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.0892857143em;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14);
+  font-weight: 500;
+}
+.btn {
+  font-weight: 500;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14);
+}
+.btn i {
+  vertical-align: middle;
+}
+
+.ripple {
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+  animation: ripple-animation 2.5s;
+}
+
+@keyframes ripple-animation {
+  0% {
+      transform: scale(1);
+      opacity: 0.4;
+  }
+
+  100% {
+      transform: scale(100);
+      opacity: 0;
+  }
+}
+
 .dropdown-menu {
-    opacity: 0;
-    animation: slide-in 0.35s ease-out forwards;
-    -webkit-animation: slide-in 0.35s ease-out forwards;
-  }
+  opacity: 0;
+  animation: slide-in 0.35s ease-out forwards;
+  -webkit-animation: slide-in 0.35s ease-out forwards;
+}
+
 @keyframes slide-in {
-    0% {
-      opacity: 0;
-      transform: translateX(1rem);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0rem);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(1rem);
   }
-  
-  @-webkit-keyframes slide-in {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateX(1rem);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: translateX(0rem);
-    }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
   }
-  
-  
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+  }
+}
+
+
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .fi {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 i {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 /* no select */
 .noselect {
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* KHTML */
-    -moz-user-select: none;
-    /* Older Firefox */
-    -ms-user-select: none;
-    /* IE */
-    user-select: none;
-    /* Chrome, Edge, Opera and Firefox */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* KHTML */
+  -moz-user-select: none;
+  /* Older Firefox */
+  -ms-user-select: none;
+  /* IE */
+  user-select: none;
+  /* Chrome, Edge, Opera and Firefox */
 }
 
 .navbar-toggler {
-    border: 1px solid rgb(165, 165, 165, 0.0) !important;
-    border-radius: 0%;
+  border: 1px solid rgb(165, 165, 165, 0.0) !important;
+  border-radius: 0%;
 }
+
 .navbar-toggler:hover span {
-    color: rgb(165, 165, 165) !important;
+  color: rgb(165, 165, 165) !important;
 }
+
 .img-container {
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    box-shadow: inset -100000px -1000000px rgba(0, 0, 0, 0.7);
-    color: white;
-    width: 100vw;
-    min-height: 50vh;
-    background-repeat: no-repeat;
-    padding-left: 20vw;
-    padding-right: 10vw;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  box-shadow: inset -100000px -1000000px rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 100vw;
+  min-height: 50vh;
+  background-repeat: no-repeat;
+  padding-left: 20vw;
+  padding-right: 10vw;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
+
 .img-container h1 {
-    padding-bottom: 5vh;
-    font-size: 5rem;
+  padding-bottom: 5vh;
+  font-size: 5rem;
 }
 
 button {
-    padding: 0 16px !important;
-    height: 36px;
+  padding: 0 16px !important;
+  height: 36px;
 }
